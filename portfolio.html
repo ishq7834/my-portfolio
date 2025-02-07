@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Ishika</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(0, 0, 0, 0.7); /* Transparent black */
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      color: skyblue;
+    }
+
+    header nav ul {
+      list-style: none;
+      display: flex;
+      gap: 3rem;
+    }
+
+    header nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: bold;
+      position: relative;
+    }
+
+    header nav ul li a.active {
+      color: skyblue;
+    }
+
+    header nav ul li a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: skyblue;
+    }
+
+    header nav ul li a:hover {
+      color: skyblue;
+    }
+
+    /* Home Section */
+    #home {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6rem 2rem;
+    }
+
+    #home .content {
+      flex: 1;
+      margin-left: 1.5rem;
+      position: relative;
+      top: -50px; /* Moves content up */
+      left: -30px; /* Moves content slightly left */
+    }
+
+    #home .content h1 {
+      font-size: 4rem;
+      font-weight: bold;
+      color: skyblue;
+      margin: 0;
+    }
+
+    #home .content h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #fff;
+      display: flex;
+      align-items: center;
+    }
+
+    #home .content h2 .typing {
+      color: skyblue; /* Red color for "UI/UX Designer" */
+      border-right: 2px solid #fff; /* Blinking cursor */
+      white-space: nowrap;
+      overflow: hidden;
+      animation: typing 4s steps(20) infinite, blink 0.5s step-end infinite;
+    }
+
+    /* Typing animation */
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 15ch; } /* Adjusted width for the full text */
+    }
+
+    /* Blinking cursor */
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    #home .content p {
+      margin: 1rem 0;
+      line-height: 1.8;
+      color: #ccc;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    #home .content .buttons {
+      margin-top: 2rem;
+    }
+
+    #home .content .buttons a {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+    }
+
+    #home .content .buttons .contact {
+      color: skyblue;
+      border: 2px solid skyblue;
+      background-color: #000;
+      transition: all 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #home .content .buttons .contact:hover {
+      background-color: skyblue;
+      color: black;
+      border-color: skyblue;
+      transform: scale(1.1);
+      box-shadow: 0 0 20px 5px skyblue;
+    }
+
+    #home .profile {
+  width: 500px; /* Ensure the container matches the image size */
+  height: 500px;
+  flex: 1;
+  text-align: left;
+  position: relative;
+  top: -50px; /* Moves image up */
+  right: -30px; /* Moves image slightly right */
+}
+
+
+#home .profile img {
+  width: 500px !important; /* Force the size */
+  height: 500px !important; /* Force the size */
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid skyblue;
+  background: linear-gradient(to right, skyblue, transparent);
+  max-width: none !important; /* Prevent resizing */
+  max-height: none !important; /* Prevent resizing */
+  min-width: 500px !important; /* Ensure the minimum size */
+  min-height: 500px !important; /* Ensure the minimum size */
+}
+
+
+
+    #home .social-icons {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: left;
+      gap: 1rem;
+    }
+
+    #home .social-icons a {
+      color: #fff;
+      font-size: 1.5rem;
+      transition: color 0.3s;
+    }
+
+    #home .social-icons a:hover {
+      color: skyblue;
+    }
+
+    /* Projects Section */
+    #projects {
+      padding: 4rem 2rem;
+      background-color: #111;
+      text-align: center;
+    }
+
+    #projects h2 {
+      font-size: 3rem;
+      color: skyblue;
+      font-weight: bold;
+    }
+
+    #projects p {
+      font-size: 1.5rem;
+      color: #fff;
+      margin: 1rem 0;
+    }
+
+    #projects .project-item {
+      margin: 2rem;
+      padding: 1rem;
+      background-color: #222;
+      border-radius: 8px;
+    }
+
+    #projects .project-item h3 {
+      color: skyblue;
+      font-size: 2rem;
+    }
+
+    #projects .project-item p {
+      color: #ccc;
+      font-size: 1.2rem;
+    }
+
+    /* Services Section - Flashcards */
+    #services {
+      padding: 4rem 2rem;
+      background-color: #222;
+      text-align: center;
+    }
+
+    #services h2 {
+      font-size: 3rem;
+      color: white;
+      font-weight: bold;
+      margin-bottom: 3rem;
+    }
+
+    #services .flashcards {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    #services .flashcard {
+      width: 250px;
+      height: 300px;
+      background-color: skyblue;
+      color: white;
+      border-radius: 15px;
+      padding: 1.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    #services .flashcard:hover {
+      background-color: black;
+      color: skyblue;
+      transform: translateY(-10px);
+      box-shadow: 0 0 30px rgba( 135, 206, 235, 0.8);
+    }
+
+    #services .flashcard h3 {
+      font-size: 1.8rem;
+      color: white; /* Default color */
+      margin: auto; /* Center vertically */
+    }
+
+    #services .flashcard p {
+      display: none; /* Hide by default */
+      color: rgb(255, 255, 255); /* Default color */
+      font-size: large;
+      margin-top: 50px; /* Move slightly upwards */
+      margin-bottom: 100px;
+    }
+
+    #services .flashcard:hover h3 {
+      color: skyblue; /* Change color on hover */
+    }
+
+    #services .flashcard:hover p {
+      display: block; /* Show the description when hovering over the card */
+    }
+
+  /* Overall Section Styles */
+  #skills {
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: #000; /* Dark background */
+  }
+
+  #skills h2 {
+    font-size: 3rem;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+
+  /* Transparent Red Box */
+  .skills-container {
+  background-color: rgba(135, 206, 235, 0.1); /* Transparent red */
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(135, 206, 235, 0.5); /* Subtle glowing effect for the container */
+  width: 37%; /* Reduced width */
+  margin: 0 auto; /* Center the box */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+  /* Skill Row */
+  .skill-row {
+    display: flex;
+    gap: 1rem;
+  }
+
+  /* Individual Skill Boxes */
+  .skill-box {
+    background-color: #000; /* Black background */
+    width: 120px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(135, 206, 235, 0.5); /* Subtle glow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .skill-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(135, 206, 235, 1); /* Brighter glow on hover */
+  }
+
+  .skill-box img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0.5rem;
+  }
+
+  .skill-box p {
+    font-size: 1rem;
+    color: white;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  /* Education Section */
+  .education-section {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #89cfeb;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 3rem;
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background-color: #89cfeb;
+            transform: translateX(-50%);
+        }
+
+        .timeline-event {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .timeline-event:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-event-content {
+            background-color: #1c1c1c;
+            padding: 20px;
+            border-radius: 10px;
+            position: relative;
+            width: 40%;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .timeline-event-content:hover {
+            box-shadow: 0 0 20px 8px #89cfeb;
+            transform: translateY(-10px);
+        }
+
+        .timeline-event-content::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            border-width: 12px;
+            border-style: solid;
+        }
+
+        .timeline-event:nth-child(odd) .timeline-event-content::after {
+            right: -24px;
+            border-color: transparent transparent transparent #1c1c1c;
+        }
+
+        .timeline-event:nth-child(even) .timeline-event-content::after {
+            left: -24px;
+            border-color: transparent #1c1c1c transparent transparent;
+        }
+
+        .timeline-event .arrow {
+            position: absolute;
+            top: 50%;
+            width: 0;
+            height: 0;
+            transform: translateY(-50%);
+            border-style: solid;
+        }
+
+        .timeline-event:nth-child(odd) .arrow {
+            right: calc(50% - 2px);
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent #89cfeb;
+        }
+
+        .timeline-event:nth-child(even) .arrow {
+            left: calc(50% - 2px);
+            border-width: 10px 10px 10px 0;
+            border-color: transparent #89cfeb transparent transparent;
+        }
+
+        .timeline-icon {
+            background-color: #89cfeb;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-weight: bold;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.2em;
+        }
+
+        .timeline-event h3 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #89cfeb;
+        }
+
+        .timeline-event p {
+            margin: 10px 0 0;
+            font-size: 1em;
+            color: #fff;
+        }
+
+  /* General Styles */
+.contact-section {
+  padding: 60px 20px;
+  background: #121212;
+  color: #fff;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  color: #89cfeb;
+}
+
+.section-description {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  color: #aaa;
+}
+
+/* Layout Styles */
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+  /* Project Section */
+/* Container for the projects (grey background, bigger than cards) */
+.projects-container-wrapper {
+            background-color: #333; /* Grey color for container */
+            padding: 50px; /* Space around the cards */
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: visible; /* Ensure cards are not clipped */
+            height: 700px; /* Increased height */
+            position: relative;
+            flex-direction: column;
+        }
+
+        .projects-container-zrapper {
+            background-color: #333; /* Grey color for container */
+            padding: 50px; /* Space around the cards */
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: visible; /* Ensure cards are not clipped */
+            height: 600px; /* Increased height */
+            position: relative;
+            flex-direction: column;
+        }
+
+        .projects-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: -200px; /* Increased margin-top for better placement */
+            position: relative;
+            height: 450px;
+            transform: translateX(150px);
+        }
+
+        .project-card {
+            background-color: #f1ecec;
+            border-radius: 20px;
+            overflow: hidden;
+            width: 200px;
+            height: 400px;
+            position: absolute;
+            transform-origin: bottom center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 4px solid skyblue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Ensures the entire image fits without cropping */
+            display: block; /* Removes extra space under images */
+        }
+
+
+        /* Hover effect for glowing */
+        .project-card:hover {
+            transform: scale(1.1);
+            z-index: 10;
+            box-shadow: 0 0 30px 10px rgba(0, 191, 255, 0.8);
+        }
+
+        /* Fan-out layout */
+        .project-card:nth-child(1) {
+            transform: rotate(15deg) translateX(300px);
+        }
+
+        .project-card:nth-child(2) {
+            transform: rotate(10deg) translateX(150px);
+        }
+
+        .project-card:nth-child(3) {
+            transform: rotate(5deg);
+        }
+
+        .project-card:nth-child(4) {
+            transform: rotate(-5deg) translateX(-150px);
+        }
+
+        .project-card:nth-child(5) {
+            transform: rotate(-10deg) translateX(-300px);
+        }
+
+        .project-card:nth-child(6) {
+            transform: rotate(-15deg) translateX(-450px);
+        }
+
+        .project-card:nth-child(7) {
+            transform: rotate(-20deg) translateX(-600px);
+        }
+
+        .project-title {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 22px;
+            font-weight: bold;
+            color: skyblue;
+            padding: 10px;
+        }
+
+        .project-description {
+            text-align: center;
+            color: #ccc;
+            font-size: 16px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .project-image {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Project section styling */
+        #projects {
+            text-align: center;
+            padding: 50px;
+        }
+
+        #projects h2 {
+            color: skyblue;
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        /* Enhanced styling for "Here are some of my latest works" */
+        #projects p {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 700; /* Bold text */
+            margin-bottom: 30px;
+            text-shadow: 3px 3px 15px rgba(0, 191, 255, 0.7); /* Strong glow effect */
+            font-family: 'Arial', sans-serif;
+            font-style: italic;
+            letter-spacing: 2px;
+            padding: 20px;
+            background: linear-gradient(45deg, #00bfff, #1e90ff); /* Gradient background */
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        /* Styling for the "See More" button */
+        .see-more-btn {
+            position: absolute;
+            bottom: 50px; /* Position button at the bottom of the container */
+            right: 45px; /* Move button to the right */
+            background-color: #1e90ff; /* Blue color */
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Rightward arrow inside the button */
+        .see-more-btn::before {
+            content: '→'; /* Right arrow */
+            font-size: 25px;
+        }
+
+        /* Hover effect for the button */
+        .see-more-btn:hover {
+            background-color: #00bfff;
+        }
+
+        /* Text under the button (inside .projects-container-wrapper) */
+        .see-more-text { 
+            position: absolute;
+            bottom: 20px; /* Slightly below the button */
+            color: skyblue;
+            font-size: 14px;
+            text-align: right; /* Aligns text to the right */
+            right: 23px; /* Moves it slightly to the left from the right edge */
+            width: auto; /* Keeps width only as much as needed */
+            margin-top: 60px; /* Adjusted spacing */
+        }
+
+        .projects-container-zrapper {
+            background-color: #333;
+            padding: 50px;
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: visible;
+            height: auto;
+            position: relative;
+        }
+
+        .main-screen {
+            width: 1000px;
+            height: 600px;
+            background-color: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid skyblue;
+            margin-bottom: 20px;
+        }
+
+        .main-screen img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .small-screens {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .small-screen {
+            width: 150px;
+            height: 100px;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid transparent;
+            cursor: pointer;
+        }
+
+        .small-screen img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .small-screen.selected {
+            border-color: skyblue;
+        }
+
+/* Contact Section */
+.contact-section {
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #1b1b1b, #2c2c2c);
+  color: white;
+}
+
+/* Section Title */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #89cfeb;
+  text-shadow: 2px 2px 10px rgba(137, 207, 235, 0.3);
+  margin-bottom: 15px;
+}
+
+/* Section Description */
+.section-description {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  max-width: 600px;
+  opacity: 0.8;
+}
+
+/* Contact Card */
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1000px;
+}
+
+/* Glassmorphism Card */
+.contact-card {
+  background: rgba(34, 34, 34, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  flex: 1 1 320px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(137, 207, 235, 0.3);
+}
+
+/* Large Profile Image Container */
+.profile-pic-container {
+  width: 1200px; /* Large container width */
+  height: 200px; /* Keep it balanced */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  margin: 0 auto 15px;
+  position: relative;
+}
+
+/* Profile Image - Ensuring Proper Fit */
+.profile-pic {
+  width: 180px; /* Keep it small */
+  height: 180px; /* Make sure it's a perfect circle */
+  border-radius: 50%;
+  object-fit: cover; /* Ensures the image fills the circle properly */
+  border: 3px solid rgba(137, 207, 235, 0.8);
+}
+
+/* Adding the Gradient Overlay */
+.profile-pic-container::before {
+  content: "";
+  position: absolute;
+  width: 180px; /* Match image size */
+  height: 180px; /* Match image size */
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(137, 207, 235, 0.7), rgba(77, 168, 218, 0.4));
+  z-index: -1; /* Puts gradient behind image */
+}
+
+/* Contact Details */
+.contact-name {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #89cfeb;
+  margin-bottom: 5px;
+}
+
+.contact-role {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #ddd;
+  font-style: italic;
+}
+
+/* Contact Info */
+.contact-info {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 15px;
+  font-size: 1rem;
+  color: #ddd;
+}
+
+.contact-info li {
+  margin-bottom: 10px;
+}
+
+.contact-info a {
+  color: #89cfeb;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contact-info a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.social-icon {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #89cfeb, #4da8da);
+  color: #fff;
+  border-radius: 8px;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.social-icon:hover {
+  background: #4da8da;
+  transform: scale(1.1);
+}
+
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Ishika</div>
+  <nav>
+    <ul>
+      <li><a href="#home" class="nav-link">Home</a></li>
+      <li><a href="#services" class="nav-link">Services</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#education" class="nav-link">Education</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section id="home">
+  <div class="profile">
+    <img src="images/profile.png" alt="Ishika's Profile Picture">
+  </div>
+  <div class="content">
+    <h1>Hi, It's <span style="color: skyblue;">Ishika</span></h1>
+    <h2>I'm a&nbsp;<span class="typing">UI/UX Designer</h2>
+    <p>Creating seamless and engaging user experiences through effective information architecture and interaction design.</p>
+    <div class="buttons">
+      <a href="#contact" class="contact">Contact Me</a>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <h2>Services</h2>
+  <div class="flashcards">
+    <div class="flashcard">
+      <h3>UI Design</h3>
+      <p>Creating seamless and engaging user experiences through effective information architecture and interaction design.</p>
+    </div>
+    <div class="flashcard">
+      <h3>UX Research</h3>
+      <p>Understanding user needs and behaviors to design better digital experiences.</p>
+    </div>
+    <div class="flashcard">
+      <h3>Prototyping</h3>
+      <p>Creating interactive prototypes to test and refine user interfaces.</p>
+    </div>
+    <div class="flashcard">
+      <h3>Web Design</h3>
+      <p>Building responsive and accessible websites with a focus on usability and aesthetics.</p>
+    </div>
+    <div class="flashcard">
+      <h3>Mobile App Design</h3>
+      <p>Designing intuitive and user-friendly mobile applications.</p>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>My Skills</h2>
+  <div class="skills-container">
+    <!-- Row 1 -->
+    <div class="skill-row">
+      <div class="skill-box">
+        <img src="file:///C:/Users/hrith/Desktop/Portfolio1/images/figma.png" alt="Figma Icon">
+        <p>Figma</p>
+      </div>
+      <div class="skill-box">
+        <img src="file:///C:/Users/hrith/Desktop/Portfolio1/images/canva.WEBP" alt="Framer Icon">
+        <p>Canva</p>
+      </div>
+      <div class="skill-box">
+        <img src="file:///C:/Users/hrith/Desktop/Portfolio1/images/photoshop.png" alt="Photoshop Icon">
+        <p>Photoshop</p>
+      </div>
+      <div class="skill-box">
+        <img src="file:///C:/Users/hrith/Desktop/Portfolio1/images/illustrator.png" alt="WordPress Icon">
+        <p>Adobe</p>
+      </div>
+    </div>
+    <!-- Row 2 -->
+    <div class="skill-row">
+      <div class="skill-box">
+        <img src="file:///C:/Users/hrith/Desktop/Portfolio1/images/sketch.png" alt="Angular Icon">
+        <p>Sketch</p>
+      </div>
+      <div class="skill-box">
+        <img src="file:///C:/Users/hrith/Desktop/Portfolio1/images/xd.png" alt="Webflow Icon">
+        <p>Adobe XD</p>
+      </div>
+      <div class="skill-box">
+        <img src="file:///C:/Users/hrith/Desktop/Portfolio1/images/python.png" alt="Python Icon">
+        <p>Python</p>
+      </div>
+      <div class="skill-box">
+        <img src="file:///C:/Users/hrith/Desktop/Portfolio1/images/dora.png" alt="Sketch Icon">
+        <p>Dora</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <h1>Education</h1>
+  <div class="timeline">
+      <div class="timeline-event">
+          <div class="timeline-event-content">
+              <h3>S.S.C Maharashtra Boards</h3>
+              <p>Completed S.S.C in March 2019 from Bharat English High School and College, under the Maharashtra Board.</p>
+          </div>
+          <div class="arrow"></div>
+          <div class="timeline-icon">SSC</div>
+      </div>
+      <div class="timeline-event">
+          <div class="timeline-event-content">
+              <h3>H.S.C Maharashtra Boardse</h3>
+              <p>Completed H.S.C in August 2021 from Bharat English High School and College, under the Maharashtra Board.</p>
+          </div>
+          <div class="arrow"></div>
+          <div class="timeline-icon">HSC</div>
+      </div>
+      <div class="timeline-event">
+          <div class="timeline-event-content">
+              <h3>Graduation</h3>
+              <p>Graduated B.S.C CS in 2024 from Satish Pradhan Dnyansadhna College, under the Mumbai University</p>
+          </div>
+          <div class="arrow"></div>
+          <div class="timeline-icon">G</div>
+      </div>
+      <div class="timeline-event">
+          <div class="timeline-event-content">
+              <h3>Free-Lance</h3>
+              <p>Started Free-lancing in 2025 from Fiver Platfrom </p>
+          </div>
+          <div class="arrow"></div>
+          <div class="timeline-icon">F</div>
+      </div>
+       
+  </ul>
+</section>
+
+<section id="projects" class="projects-section">
+            <h2>Projects</h2>
+            <p>Here are some of my latest works</p>
+            <h3 style="color: skyblue; font-size: 24px; margin-top: 20px; text-align: left; text-decoration: underline;">FLOWER BOUQUET APPLICATION</h3>
+        
+        <!-- Wrapper container added here -->
+        <div class="projects-container-wrapper">
+            <div class="projects-container">
+                <div class="project-card">
+                    <img src="file:///C:/Users/hrith/Desktop/Portfolio1/images/flower app page 7.png" class="project-image">
+                </div>
+                <div class="project-card">
+                    <img src="file:///C:/Users/hrith/Desktop/Portfolio1/images/flower app page 6.png" alt="Project 2" class="project-image">
+                    
+                </div>
+                <div class="project-card">
+                    <img src="file:///C:/Users/hrith/Desktop/Portfolio1/images/flower app page 5.png" alt="Project 3" class="project-image">
+                   
+                </div>
+                <div class="project-card">
+                    <img src="file:///C:/Users/hrith/Desktop/Portfolio1/images/flower app page 4.png" alt="Project 4" class="project-image">
+                    
+                </div>
+                <div class="project-card">
+                    <img src="file:///C:/Users/hrith/Desktop/Portfolio1/images/flower app page 3.png" alt="Project 5" class="project-image">
+                </div>
+                <div class="project-card">
+                    <img src="file:///C:/Users/hrith/Desktop/Portfolio1/images/flower app page 2.png" alt="Project 6" class="project-image">
+                </div>
+                <div class="project-card">
+                    <img src="file:///C:/Users/hrith/Desktop/Portfolio1/images/flower app page 1.png" alt="Project 7" class="project-image">
+                </div>
+            </div>
+            <!-- See More button and text -->
+            <button class="see-more-btn"></button>
+            <div class="see-more-text">See Full Project</div>
+        </div>
+    
+
+    <h3 style="color: skyblue; font-size: 24px; margin-top: 150px; text-align: left; text-decoration: underline;">SMART GROCERY APPLICATION</h3>
+        
+    <!-- Wrapper container added here -->
+    <div class="projects-container-wrapper">
+        <div class="projects-container">
+            <div class="project-card">
+                <img src="file:///C:/Users/hrith/Desktop/Portfolio1/images/Grocery app page 7.png" class="project-image">
+            </div>
+            <div class="project-card">
+                <img src="file:///C:/Users/hrith/Desktop/Portfolio1/images/Grocery app page 6.png" alt="Project 2" class="project-image">
+                
+            </div>
+            <div class="project-card">
+                <img src="file:///C:/Users/hrith/Desktop/Portfolio1/images/Grocery app page 5.png" alt="Project 3" class="project-image">
+               
+            </div>
+            <div class="project-card">
+                <img src="file:///C:/Users/hrith/Desktop/Portfolio1/images/Grocery app page 4.png" alt="Project 4" class="project-image">
+                
+            </div>
+            <div class="project-card">
+                <img src="file:///C:/Users/hrith/Desktop/Portfolio1/images/Grocery app page 3.png" alt="Project 5" class="project-image">
+            </div>
+            <div class="project-card">
+                <img src="file:///C:/Users/hrith/Desktop/Portfolio1/images/Grocery app page 2.png" alt="Project 6" class="project-image">
+            </div>
+            <div class="project-card">
+                <img src="file:///C:/Users/hrith/Desktop/Portfolio1/images/Grocery app page 1.png" alt="Project 7" class="project-image">
+            </div>
+        </div>
+        <!-- See More button and text -->
+        <button class="see-more-btn"></button>
+        <div class="see-more-text">See Full Project</div>
+    </div>
+</section>
+
+<section id="projects">
+    <h3 style="color: skyblue; font-size: 24px; margin-top: 20px; text-align: left; text-decoration: underline;">TECH DASHBOARD</h3>
+
+    <div class="projects-container-zrapper">
+        <div class="main-screen" id="main-screen">
+            <img src="images/money-save-app-page-1.png" alt="Main Screen" id="main-image">
+        </div>
+        <div class="small-screens">
+            <div class="small-screen" onclick="selectImage(this, 'images/money-save-app-page-1.png')">
+                <img src="images/money-save-app-page-1.png" alt="Project Image">
+            </div>
+            <div class="small-screen" onclick="selectImage(this, 'images/money-save-app-page-2.png')">
+                <img src="images/money-save-app-page-2.png" alt="Project 2">
+            </div>
+            <div class="small-screen" onclick="selectImage(this, 'images/money-save-app-page-3.png')">
+                <img src="images/money-save-app-page-3.png" alt="Project 3">
+            </div>
+            <div class="small-screen" onclick="selectImage(this, 'images/money-save-app-page-4.png')">
+                <img src="images/money-save-app-page-4.png" alt="Project 4">
+            </div>
+            <div class="small-screen" onclick="selectImage(this, 'images/money-save-app-page-5.png')">
+                <img src="images/money-save-app-page-5.png" alt="Project 5">
+            </div>
+            <div class="small-screen" onclick="selectImage(this, 'images/money-save-app-page-6.png')">
+                <img src="images/money-save-app-page-6.png" alt="Project 6">
+            </div>
+            <div class="small-screen" onclick="selectImage(this, 'images/money-save-app-page-7.png')">
+                <img src="images/money-save-app-page-7.png" alt="Project 7">
+            </div>
+        </div>
+        
+</section>
+<section id="contact" class="contact-section">
+  <h2 class="section-title">Get in Touch</h2>
+  <p class="section-description">
+    I'd love to hear from you! Whether it's a project, job opportunity,feel free to reach out.
+  </p>
+
+  <div class="contact-container">
+    <!-- Contact Card -->
+    <div class="contact-card">
+      <div class="profile-pic-container">
+        <img src="images/profile3.png" alt="Your Profile Picture" class="profile-pic" />
+      </div>
+      <h3 class="contact-name">Ishika Paras Waghela</h3>
+      <p class="contact-role">UI/UX Designer | Creative Enthusiast</p>
+      <ul class="contact-info">
+        <li><strong>Email:</strong> <a href="mailto:ishikawaghela7834@gmail.com">ishikawaghela7834@gmail.com</a></li>
+        <li><strong>Phone:</strong> +91 9220809007</li>
+        <li><strong>Location:</strong> Chembur, India</li>
+      </ul>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/ishika-waghela/" target="_blank" class="social-icon">LinkedIn</a>
+        <a href="https://www.youtube.com/channel/UCS9dyNbhWm1nSg16qlhXOWw" target="_blank" class="social-icon">YouTube</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // JavaScript to add active class to header links
+  document.addEventListener("DOMContentLoaded", () => {
+    const links = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          links.forEach(link => link.classList.remove('active'));
+          document.querySelector(`.nav-link[href="#${entry.target.id}"]`).classList.add('active');
+        }
+      });
+    }, { threshold: 0.5 });
+
+    sections.forEach(section => observer.observe(section));
+  });
+  function selectImage(element, imagePath) {
+        document.getElementById('main-image').src = imagePath;
+        let smallScreens = document.querySelectorAll('.small-screen');
+        smallScreens.forEach(screen => screen.classList.remove('selected'));
+        element.classList.add('selected');
+    }
+</script>
+
+</body>
+</html>
